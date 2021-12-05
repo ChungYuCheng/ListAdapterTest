@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.listadaptertest.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private val listener = object : OnClickCallBack {
-        override fun onClickItem(index: Int) {
+    private val listener = object : (Int) -> Unit {
+        override fun invoke(index: Int) {
             mainVm.clickItem(index)
         }
     }
