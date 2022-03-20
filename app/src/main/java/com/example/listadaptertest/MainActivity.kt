@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
             rvList.apply {
                 layoutManager = LinearLayoutManager(this@MainActivity)
                 adapter = testAdapter
+                addItemDecoration(OneLineItemDecoration(this@MainActivity))
             }
 
             btnAddOne.setOnClickListener {
@@ -36,8 +37,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun observeData() {
-        mainVm.testList.observe(this, {
+        mainVm.testList.observe(this) {
             testAdapter.submitList(it.toMutableList())
-        })
+        }
     }
 }
